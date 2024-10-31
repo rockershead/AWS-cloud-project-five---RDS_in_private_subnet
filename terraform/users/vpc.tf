@@ -34,25 +34,14 @@ resource "aws_security_group" "lambda_security_group" {
 
 
 
-  ingress {
+  # No inbound rules are necessary, as Lambda functions do not accept inbound connections
 
-    from_port   = 0
-    to_port     = 0
-    protocol    = -1
-    self        = "false"
-    cidr_blocks = ["0.0.0.0/0"]
-    description = "any"
-
-  }
-
-
+  # Outbound rule to allow traffic only to port 3306 (MySQL)
   egress {
-
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
-
   }
 
 }

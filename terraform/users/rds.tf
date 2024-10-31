@@ -6,10 +6,11 @@ resource "aws_security_group" "rds_security_group" {
   vpc_id      = aws_vpc.main.id
   # Allow MySQL port access from anywhere (use a more restrictive source if needed)
   ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"] # Allows all IPs; restrict this in production
+    from_port = 3306
+    to_port   = 3306
+    protocol  = "tcp"
+    //cidr_blocks = ["0.0.0.0/0"] # Allows all IPs; restrict this in production
+    security_groups = [aws_security_group.lambda_security_group.id] # Allow only Lambda SG
   }
 
   # Allow all outbound traffic
