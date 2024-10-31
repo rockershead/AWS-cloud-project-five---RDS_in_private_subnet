@@ -7,6 +7,9 @@ This project aims to create 2 lambda functions triggered by API_GATEWAY which wi
 
 Architecture diagram is as follows:
 
+![rds_in_private_subnet-without proxy drawio](https://github.com/user-attachments/assets/c28eaf09-2d13-4d6f-9127-d6047e0efa50)
+
+
 
 # Steps to deploy in aws
 - in my case I am using a linux terminal
